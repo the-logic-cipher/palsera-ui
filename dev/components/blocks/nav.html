@@ -1,0 +1,56 @@
+<!-- list -->
+<ul class="nav">
+    <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
+        <span>Navigation</span>
+    </li>
+    <li ui-sref-active="active">
+        <a ui-sref="dashboard.home">
+        <i class="glyphicon glyphicon-stats icon text-primary-dker"></i>
+        <span class="font-bold">Dashboard</span>
+        </a>
+    </li>
+    <li>
+        <a href="" class="auto">
+            <span class="pull-right text-muted">
+            <i class="fa fa-fw fa-angle-right text"></i>
+            <i class="fa fa-fw fa-angle-down text-active"></i>
+          </span>
+            <i class="icon-credit-card icon text-info"></i>
+            <span class="font-bold">Shipments</span>
+        </a>
+        <ul class="nav nav-sub dk">
+            <li ui-sref-active="active">
+                <a ui-sref="shipment.unprocessed">
+                    <i class="icon-credit-card icon text-info" ui-sref-opts="{reload: true}"></i>
+                    <span class="font-bold">Unprocessed</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="shipment.processed">
+                    <i class="icon-credit-card icon text-info"></i>
+                    <span class="font-bold">Processed</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li ui-sref-active="active">
+        <a ui-sref="school.home">
+        <i class="glyphicon glyphicon-stats icon text-primary-dker"></i>
+        <span class="font-bold">Schools</span>
+        </a>
+    </li>
+    <li ui-sref-active="active">
+        <a ui-sref="user.list">
+        <i class="icon-users icon text-primary-dker"></i>
+        <span class="font-bold">Users</span>
+        </a>
+    </li>
+    <li>
+        <a ng-click="logout()">
+        <i class="fa fa-power-off icon text-danger-dker"></i>
+        <span class="font-bold">Logout</span>
+        </a>
+    </li>
+    <li class="line dk"></li>
+</ul>
+<!-- / list -->

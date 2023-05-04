@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="app">
+
+	<head>
+		<meta charset="utf-8"/>
+		<title>Pulsera Admin</title>
+		<meta name="robots" content="noindex"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+		<!--CSS_STYLES-->
+		<link rel="stylesheet" href="assets/css/concat/production.css" type="text/css"/>
+		<!--CSS_STYLES END-->
+		<!--JS_SCRIPTS-->
+		<script src="assets/js/concat/dependencies.js"></script>
+		<script src="assets/js/concat/production.js"></script>
+		<!--JS_SCRIPTS END-->
+	</head>
+
+	<body ng-controller="AppCtrl">
+		<toaster-container></toaster-container>
+		<div
+			class="app"
+			id="app"
+			ng-class="{'app-header-fixed':app.settings.headerFixed, 'app-aside-fixed':app.settings.asideFixed, 'app-aside-folded':app.settings.asideFolded, 'app-aside-dock':app.settings.asideDock, 'container':app.settings.container}"
+			ui-view></div>
+	</body>
+
+</html>

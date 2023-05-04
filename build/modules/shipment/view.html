@@ -1,0 +1,101 @@
+<div class="bg-light lter b-b wrapper-md">
+    <div class="row">
+        <div class="col-sm-12 col-xs-12">
+            <span class="fixed m-n font-thin h4 text-black">Viewing Order <b>#{{model.metaData.uid}}</b></span>
+        </div>
+    </div>
+</div>
+<div class="hbox hbox-auto-xs hbox-auto-sm">
+    <!-- main -->
+    <div class="col" >
+        <div class="row">
+            <!-- main header -->
+            <div class="col-md-10 col-md-offset-1 mod-agent bg-white">
+                <table class="table table-bordered" style="margin-top: 20px">
+                    <tr colspan="2">
+                        <td>
+                            <h1 class="h3"> Shipping Details </h1>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> Contact Name:</td>
+                        <td>
+                            <span ng-if="!editMode">{{model.buyer.contactName}}</span>
+                            <span ng-if="editMode"><input class="form-control" ng-model=buyer.contactName /></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> Company:</td>
+                        <td>
+                            <span ng-if="!editMode">{{model.buyer.company}}</span>
+                            <span ng-if="editMode"><input class="form-control" ng-model=buyer.company /></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> Email:</td>
+                        <td>
+                            <span ng-if="!editMode"><b>{{model.buyer.email}}</b></span>
+                            <span ng-if="editMode"><input class="form-control" ng-model=buyer.email /></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> Phone Number:</td>
+                        <td>
+                            <span ng-if="!editMode">{{model.buyer.phone}}</span>
+                            <span ng-if="editMode"><input class="form-control" ng-model=buyer.phone /></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> Address Line #1:</td>
+                        <td>
+                            <span ng-if="!editMode">{{model.buyer.addressLine1}}</span>
+                            <span ng-if="editMode"><input class="form-control" ng-model=buyer.addressLine1 /></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> Address Line #2:</td>
+                        <td>
+                            <span ng-if="!editMode">{{model.buyer.addressLine2}}</span>
+                            <span ng-if="editMode"><input class="form-control" ng-model=buyer.addressLine2 /></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> City:  </td>
+                        <td>
+                            <span ng-if="!editMode">{{model.buyer.city}}</span>
+                            <span ng-if="editMode"><input class="form-control" ng-model=buyer.city /></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> State:  </td>
+                        <td>
+                            <span ng-if="!editMode">{{model.buyer.state}}</span>
+                            <span ng-if="editMode"><input class="form-control" ng-model=buyer.state /></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> Zip Code:  </td>
+                        <td>
+                            <span ng-if="!editMode">{{model.buyer.zipCode}}</span>
+                            <span ng-if="editMode"><input class="form-control" ng-model=buyer.zipCode /></span>
+                        </td>
+                    </tr>
+                </table>
+
+                <div class="form-group">
+                        <button ng-if="!editMode && model.isShipped === true && !model.extraShipment" ng-disabled="shipping || gift_shipping" ng-click="extraShip()" class="btn btn-md btn-success"><i ng-if="!shipping" class="fa fa-location-arrow"></i> <i ng-if="shipping" class="fa fa-spinner fa-spin"></i> Create Additional Shipment </button>
+                        <button ng-if="!editMode && model.isShipped === true" ng-disabled="shipping || gift_shipping" ng-click="giftShip()" class="btn btn-md btn-danger"><i ng-if="!gift_shipping" class="fa fa-gift"></i> <i ng-if="gift_shipping" class="fa fa-spinner fa-spin"></i> Maraca </button>
+                        <button ng-if="!editMode && model.isShipped === false" ng-disabled="shipping" ng-click="ship()" class="btn btn-md btn-success"><i ng-if="!shipping" class="fa fa-location-arrow"></i> <i ng-if="shipping" class="fa fa-spinner fa-spin"></i> Ship Order </button>
+                        <button ng-if="!editMode && model.isShipped === true" ng-disabled="printing" ng-click="print('shipment')" class="btn btn-md btn-warning"> <i ng-if="!printing" class="fa fa-print"></i> <i ng-if="printing" class="fa fa-spinner fa-spin"></i> Print Label</button>
+                        <button ng-if="!editMode && model.isShipped === true" ng-disabled="printing" ng-click="print('return')" class="btn btn-md btn-info"> <i ng-if="!printing" class="fa fa-print"></i> <i ng-if="printing" class="fa fa-spinner fa-spin"></i> Print Return Label</button>
+                        <button ng-if="!editMode && model.isShipped === true && model.extraShipment" ng-disabled="printing" ng-click="print('extra')" class="btn btn-md btn-primary"> <i ng-if="!printing" class="fa fa-print"></i> <i ng-if="printing" class="fa fa-spinner fa-spin"></i> Print Extra Label</button>
+                        <button ng-if="!editMode && model.isShipped === false" ng-click="toggleEdit()" class="btn btn-md btn-info">  Edit </button>
+                        <button ng-if="editMode" ng-click="save()" class="btn btn-md btn-success" ng-disabled="saving" > <i ng-if="!saving" class="fa fa-print"></i> <i ng-if="saving" class="fa fa-spinner fa-spin"></i> Save </button>
+                        <button ng-if="editMode" ng-click="toggleEdit()" class="btn btn-md btn-danger"> Cancel Edit </button>
+                        <button ng-if="!editMode" ui-sref="dashboard.home" class="btn btn-md btn-danger pull-right"><i class="fa fa-chevron-left"></i> Back Home</button>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,137 @@
+<div class="hbox hbox-auto-xs hbox-auto-sm">
+	<!-- main -->
+	<div class="col">
+		<!-- main header -->
+		<div class="bg-light lter b-b wrapper-md">
+			<div class="row">
+				<div class="col-sm-6 col-xs-12">
+					<h1 class="m-n font-thin h3 text-black text-capitalize">Unprocessed shipments</h1>
+					<!-- <small class="text-muted">Welcome to {{app.name}}</small> -->
+				</div>
+			</div>
+		</div>
+		<!-- / main header -->
+		<div class="wrapper-md">
+			<div class="panel panel-default">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>
+								<h3 class="text-capitalize">
+									Unshipped orders list
+								</h3>
+							</th>
+							<th colspan="1">
+								<input type="text" ng-model="search" class="form-control"/>
+
+							</th>
+							<th colspan="1">
+								<select ng-model="filterByTime" class="form-control">
+									<option value="">Filter By Time</option>
+									<option value="all-time">All Time</option>
+									<option value="today">Today</option>
+									<option value="week">A week ago</option>
+									<option value="month">A month ago</option>
+									<option value="three-month">3 months ago</option>
+									<option value="six-month">6 months ago</option>
+								</select>
+							</th>
+							<th colspan="2">
+								<button ng-if="ordersList.length" ng-disabled="shipping || !selected.list.length" class="btn btn-info btn-md pull-right" ng-click="ship()">
+									<span ng-if="!shipping">Ship Selected Orders</span>
+									<span ng-if="shipping">
+										<i class="fa fa-spinner fa-spin"></i>Please wait...
+									</span>
+								</button>
+							</th>
+						</tr>
+						<tr style="font-weight:bold;">
+							<th colspan="1">
+								<label ng-if="ordersList.length" class="i-checks">
+									<input type="checkbox" ng-model="selected.allSelection" ng-change="toggleSelection()">
+									<i></i>
+								</label>
+								<span>
+									<a ng-click="sortType = 'name'; sortReverse = !sortReverse;">
+										School
+										<span ng-show="sortType == 'name' && !sortReverse" class="fa fa-caret-down"></span>
+										<span ng-show="sortType == 'name' && sortReverse" class="fa fa-caret-up"></span>
+									</a>
+								</span>
+							</th>
+							<!-- <th>-->
+							<!-- <a ng-click="sortType = 'name'; sortReverse = !sortReverse;">-->
+							<!-- School-->
+							<!-- <span ng-show="sortType == 'name' && !sortReverse" class="fa fa-caret-down"></span>-->
+							<!-- <span ng-show="sortType == 'name' && sortReverse" class="fa fa-caret-up"></span>-->
+							<!-- </a>-->
+							<!-- </th>-->
+							<th>
+								<a ng-click="sortType = 'buyer'; sortReverse = !sortReverse;">
+									Buyer
+									<span ng-show="sortType == 'buyer' && !sortReverse" class="fa fa-caret-down"></span>
+									<span ng-show="sortType == 'buyer' && sortReverse" class="fa fa-caret-up"></span>
+								</a>
+							</th>
+							<th>
+								<a ng-click="sortType = 'createdAt'; sortReverse = !sortReverse;">
+									Date Created
+									<span ng-show="sortType == 'createdAt' && !sortReverse" class="fa fa-caret-down"></span>
+									<span ng-show="sortType == 'createdAt' && sortReverse" class="fa fa-caret-up"></span>
+								</a>
+							</th>
+							<th>Options</th>
+						</tr>
+
+					</thead>
+					<tbody>
+						<tr ng-repeat="order in ordersList | filter:search | orderBy:sortType:sortReverse">
+							<td>
+								<label ng-if="ordersList.length" class="i-checks">
+									<input type="checkbox" checklist-model="selected.list" checklist-value="order.id">
+									<i></i>
+								</label>
+								<span>
+									{{order.name}}
+								</span>
+							</td>
+							<!-- <td> {{order.name}} </td> -->
+							<td>
+								{{order.buyer}}
+							</td>
+							<td>
+								{{order.createdAt | date}}
+							</td>
+							<td>
+								<a class="btn btn-sm btn-primary" ui-sref="shipment.view({id: order.id})">
+									View
+								</a>
+							</td>
+						</tr>
+						<tr ng-if="!ordersList.length && loading">
+							<td colspan="4">
+								<center>
+									<h5>Please wait... application is working
+										<i class="fa fa-spinner fa-spin"></i>
+									</h5>
+								</center>
+							</td>
+						</tr>
+						<tr ng-if="!ordersList.length && !loading">
+							<td colspan="4">
+								<center>
+									<h5>There is nothing here :(
+									</h5>
+								</center>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<center>
+					<pagination total-items="meta.total" items-per-page="meta.perPage" ng-model="meta.page" ng-change="pageChanged()" boundary-links="true"></pagination>
+				</center>
+			</div>
+		</div>
+	</div>
+	<!-- / main -->
+</div>

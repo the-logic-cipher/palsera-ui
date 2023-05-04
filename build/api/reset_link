@@ -1,0 +1,10 @@
+{
+    "response": {
+        "message": "Mail sent successfully",
+        "data": {
+            "firstname": "Chuka",
+            "lastname": "Ofili",
+            "email": "admin@ds.com"
+        }
+    }
+}

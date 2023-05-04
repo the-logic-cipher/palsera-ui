@@ -1,0 +1,60 @@
+<div class="bg-light lter b-b wrapper-md">
+    <div class="row">
+        <div class="col-sm-12 col-xs-12">
+            <span class="fixed m-n font-thin h4 text-black">Add <b>New User</b></span>
+        </div>
+    </div>
+</div>
+<div class="hbox hbox-auto-xs hbox-auto-sm">
+    <!-- main -->
+    <div class="col" >
+        <div class="row">
+            <!-- main header -->
+            <div class="col-md-10 col-md-offset-1 mod-agent">
+                <div class="panel col-md-12 wrapper m-t-xxl">
+                    <form name="myForm" ng-submit="create()">
+                        <alert type="{{alert.type}}" close="closeAlert();" ng-show="alert">{{alert.message.message}}</alert>
+
+                        <h4 class="font-thin m-b-xs m-l">Create a user</h4>
+                        <div class="form-group col-xs-6 m-b-xs">
+                            <input type="text" class="form-control" ng-model=userData.firstName  required placeholder="First Name"/>
+
+                        </div>
+
+                        <div class="form-group col-xs-6 m-b-xs">
+                            <input type="text" class="form-control" ng-model=userData.lastName required placeholder="Last Name"/>
+                        </div>
+
+                        <div class="form-group col-xs-6 m-b-xs">
+                            <input type="email" class="form-control" ng-model=userData.email required placeholder="Email Address"/>
+                        </div>
+
+                        <div class="form-group col-xs-6 m-b-xs">
+                            <input type="text" class="form-control" ng-model=userData.phone  required placeholder="Phone Number"/>
+
+                        </div>
+
+                        <div class="form-group col-xs-6 m-b-xs">
+                            <input type="password" class="form-control" ng-keyup="check()" required ng-model=userData.password placeholder="Password"/>
+                            <p type="{{passwordsAlert.type}}" close="closeAlert();" ng-show="passwordsAlert">{{passwordsAlert.message}}</p>
+                        </div>
+
+                        <div class="form-group col-xs-6 m-b-xs">
+                            <input type="password" class="form-control" ng-keyup="check()" required  ng-model=confirmpassword placeholder="Confirm Password"/>
+                            <p type="{{passwordsAlert.type}}" ng-show="passwordsAlert">{{passwordsAlert.message}}</p>
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="col-md-12 m-t-sm">
+                                <button type="submit" class="btn btn-sm btn-info"> Create </button>
+                                <a ui-sref="user.list" class="btn btn-sm btn-danger pull-right"> Cancel </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

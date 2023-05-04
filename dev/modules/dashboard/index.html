@@ -1,0 +1,143 @@
+<div class="hbox hbox-auto-xs hbox-auto-sm">
+  <!-- main -->
+  <div class="col">
+    <!-- main header -->
+    <div class="bg-light lter b-b wrapper-md">
+      <div class="row">
+        <div class="col-sm-6 col-xs-12">
+          <h1 class="m-n font-thin h3 text-black">Recent Entries</h1>
+          <!-- <small class="text-muted">Welcome to {{app.name}}</small> -->
+        </div>
+      </div>
+    </div>
+    <!-- / main header -->
+    <div class="wrapper-md" ng-controller="DashboardCtrl">
+      <div class="panel panel-default">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>
+                <h1>123 Contact Form</h1>
+              </th>
+              <th colspan="2">
+                <input type="text" ng-model="search" class="form-control" />
+              </th>
+              <th colspan="1">
+                <select ng-model="filterByTime" class="form-control">
+                  <option value="">Filter By Time</option>
+                  <option value="all-time">All Time</option>
+                  <option value="today">Today</option>
+                  <option value="week">A week ago</option>
+                  <option value="month">A month ago</option>
+                  <option value="three-month">3 months ago</option>
+                  <option value="six-month">6 months ago</option>
+                </select>
+              </th>
+            </tr>
+            <tr style="font-weight: bold">
+              <th>
+                <a ng-click="sortType = 'name'; sortReverse = !sortReverse;">
+                  School
+                  <span
+                    ng-show="sortType == 'name' && !sortReverse"
+                    class="fa fa-caret-down"
+                  ></span>
+                  <span
+                    ng-show="sortType == 'name' && sortReverse"
+                    class="fa fa-caret-up"
+                  ></span>
+                </a>
+              </th>
+              <th>
+                <a ng-click="sortType = 'buyer'; sortReverse = !sortReverse;">
+                  Buyer
+                  <span
+                    ng-show="sortType == 'buyer' && !sortReverse"
+                    class="fa fa-caret-down"
+                  ></span>
+                  <span
+                    ng-show="sortType == 'buyer' && sortReverse"
+                    class="fa fa-caret-up"
+                  ></span>
+                </a>
+              </th>
+              <th>
+                <a
+                  ng-click="sortType = '-createdAt'; sortReverse = !sortReverse;"
+                >
+                  Date Created
+                  <span
+                    ng-show="sortType == '-createdAt' && !sortReverse"
+                    class="fa fa-caret-down"
+                  ></span>
+                  <span
+                    ng-show="sortType == '-createdAt' && sortReverse"
+                    class="fa fa-caret-up"
+                  ></span>
+                </a>
+              </th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              <!--
+              ng-repeat="order in ordersList | filter:search | orderBy:sortType:sortReverse"
+              --
+            >
+              >
+              <td>
+                <!-- {{order.name}} -->
+                as
+              </td>
+              <td>
+                <!-- {{order.buyer}} -->
+                ada
+              </td>
+              <td>
+                <!-- {{order.createdAt | date}}</td> -->
+                aca
+              </td>
+
+              <td>
+                <a
+                  class="btn btn-sm btn-primary"
+                  ui-sref="shipment.view({id: order.id})"
+                >
+                  View
+                </a>
+              </td>
+            </tr>
+            <tr ng-if="!ordersList.length && loading">
+              <td colspan="4">
+                <center>
+                  <h5>
+                    Please wait... application is working
+                    <i class="fa fa-spinner fa-spin"></i>
+                  </h5>
+                </center>
+              </td>
+            </tr>
+            <tr ng-if="!ordersList.length && !loading">
+              <td colspan="4">
+                <center>
+                  <h5>{{order[0].name}} There is nothing herasxaxe :(</h5>
+                </center>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <center>
+          <pagination
+            total-items="meta.total"
+            items-per-page="meta.perPage"
+            ng-model="meta.page"
+            ng-change="pageChanged()"
+            boundary-links="true"
+          ></pagination>
+        </center>
+      </div>
+    </div>
+  </div>
+  <!-- / main -->
+</div>

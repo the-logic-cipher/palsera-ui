@@ -1,0 +1,32 @@
+<div class="aside-wrap">
+    <!-- if you want to use a custom scroll when aside fixed, use the slimScroll
+                <div class="navi-wrap" ui-jq="slimScroll" ui-options="{height:'100%', size:'8px'}">
+        -->
+        <div class="navi-wrap">
+            <!-- user -->
+            <div class="clearfix hidden-xs text-center show" id="aside-user">
+                <div class="dropdown wrapper" dropdown>
+                    <a ui-sref="dashboard.home">
+                    <span class="thumb-lg w-auto-folded avatar m-t-sm">
+                    <img src="assets/img/avatar_logo.png" alt="logo" class="">
+                    </span>
+                    </a>
+                    <a href class="dropdown-toggle hidden-folded">
+                    <span class="clear">
+                    <span class="block m-t-sm">
+                    <strong class="font-bold text-lt">{{user.firstname}} {{user.lastname}}</strong>
+                    </span>
+                    <span class="text-muted text-xs block groups">
+                        <span>{{user.role.name}}</span>
+                    </span>
+                    </span>
+                    </a>
+                </div>
+                <div class="line dk hidden-folded"></div>
+            </div>
+            <!-- / user -->
+            <!-- nav -->
+        <nav ui-nav class="navi clearfix" ng-include="'components/blocks/nav.html'"></nav>
+        <!-- nav -->
+    </div>
+</div>

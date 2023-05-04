@@ -1,0 +1,95 @@
+<div class="hbox hbox-auto-xs hbox-auto-sm">
+	<!-- main -->
+	<div class="col">
+		<!-- main header -->
+		<div class="bg-light lter b-b wrapper-md">
+			<div class="row">
+				<div class="col-sm-6 col-xs-12">
+					<h1 class="m-n font-thin h3 text-black">
+						Schools List
+					</h1>
+				</div>
+			</div>
+		</div>
+		<!-- / main header -->
+		<div class="wrapper-md">
+			<div class="panel panel-default">
+				<table class="table table-striped">
+
+					<thead>
+						<tr>
+							<th>
+								<input ng-model="search" placeholder="search for schools" class="input-sm form-control ng-isolate-scope" type="search">
+							</th>
+						</tr>
+						<tr>
+							<th>
+								<a ng-click="sortType = 'name'; sortReverse = !sortReverse;">
+									Name
+									<span ng-show="sortType == 'name' && !sortReverse" class="fa fa-caret-down"></span>
+									<span ng-show="sortType == 'name' && sortReverse" class="fa fa-caret-up"></span>
+								</a>
+							</th>
+							<th>
+								<a ng-click="sortType = 'ordersLength'; sortReverse = !sortReverse;">
+									Number of orders
+									<span ng-show="sortType == 'ordersLength' && !sortReverse" class="fa fa-caret-down"></span>
+									<span ng-show="sortType == 'ordersLength' && sortReverse" class="fa fa-caret-up"></span>
+								</a>
+							</th>
+							<th>
+								<a ng-click="sortType = 'location'; sortReverse = !sortReverse;">
+									Location
+									<span ng-show="sortType == 'location' && !sortReverse" class="fa fa-caret-down"></span>
+									<span ng-show="sortType == 'location' && sortReverse" class="fa fa-caret-up"></span>
+								</a>
+							</th>
+							<th></th>
+						</tr>
+
+					</thead>
+					<tbody>
+						<tr ng-repeat="school in schools | filter:search | orderBy:sortType:sortReverse">
+							<td>
+								{{school.name}}
+							</td>
+							<td>
+								{{school.ordersLength}}
+							</td>
+							<td>
+								{{school.location}}
+							</td>
+							<td>
+								<a ui-sref="school.view({id: school.id})" class="btn btn-sm btn-info">
+									Details
+								</a>
+							</td>
+						</tr>
+						<tr ng-if="!schools.length && loading">
+							<td colspan="4">
+								<center>
+									<h5>Please wait... application is working
+										<i class="fa fa-spinner fa-spin"></i>
+									</h5>
+								</center>
+							</td>
+						</tr>
+						<tr ng-if="!schools.length && !loading">
+							<td colspan="4">
+								<center>
+									<h5>There is nothing here :(
+									</h5>
+								</center>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<center>
+					<pagination total-items="meta.total" items-per-page="meta.perPage" ng-model="meta.page" ng-change="pageChanged()" boundary-links="true"></pagination>
+				</center>
+			</div>
+		</div>
+
+	</div>
+	<!-- / main -->
+</div>

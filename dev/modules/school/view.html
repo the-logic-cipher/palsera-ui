@@ -1,0 +1,144 @@
+
+<div class="bg-light lter b-b wrapper-md">
+    <div class="row">
+        <div class="col-sm-6 col-xs-12">
+            <h1 class="fixed m-n font-thin h3 text-black"> School Details View </h1>
+        </div>
+    </div>
+</div>
+<div class="hbox hbox-auto-xs hbox-auto-sm applicant bg-white">
+    <div class="col">
+        <div class="vbox">
+            <div class="row-row">
+                <div class="cell">
+                    <div class="cell-inner">
+                        <div class="wrapper-lg">
+                        <div class="panel panel-default">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <h3> Shipments  </h3>
+                                        </th>
+                                        <th colspan="2">
+                                            <input type="text" ng-model="search" class="form-control"/>
+                                        </th>
+                                        <th colspan="2">
+                                            <button ng-if="model.unprocessed.length" ng-disabled="shipping || !selected.list.length" class="btn btn-info btn-md pull-right" ng-click="ship()">
+                                                <span ng-if="!shipping">Ship Selected Orders</span>
+                                                <span ng-if="shipping"> <i class="fa fa-spinner fa-spin"></i>Please wait... </span>
+                                            </button>
+                                        </th>
+                                    </tr>
+                                    <tr style="font-weight:bold;">
+                                        <th ng-if="model.unprocessed.length">
+                                            <label class="i-checks" >
+                                                <input type="checkbox" ng-model="selected.allSelection" ng-change="toggleSelection()">
+                                                <i></i>
+                                                 Select All
+                                            </label>
+                                        </th>
+                                        <th class="text-center">
+                                            <a ng-click="sortType = '-createdAt'; sortReverse = !sortReverse;">
+                                                Date Created
+                                                <span ng-show="sortType == '-createdAt' && !sortReverse" class="fa fa-caret-down"></span>
+                                                <span ng-show="sortType == '-createdAt' && sortReverse" class="fa fa-caret-up"></span>
+                                             </a>
+                                        </th>
+                                        <th class="text-center">
+                                            <a ng-click="sortType = '-updatedAt'; sortReverse = !sortReverse;">
+                                                Date Shipped
+                                                <span ng-show="sortType == '-updatedAt' && !sortReverse" class="fa fa-caret-down"></span>
+                                                <span ng-show="sortType == '-updatedAt' && sortReverse" class="fa fa-caret-up"></span>
+                                             </a>
+                                        </th>
+                                        <th class="text-center">Shipped?</th>
+                                        <th class="text-center"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="order in model.orders | filter:search | orderBy:sortType:sortReverse">
+                                        <td ng-if="model.unprocessed.length" style="width: 2%"> <label ng-if="!order.isShipped" class="i-checks">
+                                            <input type="checkbox" checklist-model="selected.list" checklist-value="order.id">
+                                            <i></i>
+                                        </label> </td>
+                                        <td style="width: 23%" class="text-center"> {{order.createdAt | date}} </td>
+                                        <td style="width: 23%" class="text-center">
+                                            <span ng-if="order.isShipped">
+                                                {{order.updatedAt | date}}
+                                            </span>
+                                        </td>
+                                        <td style="width: 23%" class="text-center">
+                                            <i ng-if="order.isShipped" class="fa fa-check text-success"></i>
+                                            <i ng-if="!order.isShipped" class="fa fa-close text-danger"></i>
+                                        </td>
+                                        <td style="width: 29%"> <a class="btn btn-sm btn-primary" ui-sref="shipment.view({id: order.id})"> View </a> </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="col w-lg">
+        <div class="vbox">
+            <div class="row-row">
+                <div class="cell b-l">
+                    <div class="cell-inner">
+                        <div class="bg-light lter wrapper-md b-b">
+                            <h3 class="m-n font-thick">School Details</h3>
+                        </div>
+                        <div class="wrapper-md">
+                            <div class="record-pane">
+                                <div class="record-item">
+                                    <label class=" ">Name</label>
+                                    <p>{{model.name}}</p>
+                                </div>
+                                <div class="record-item">
+                                    <label class=" ">Unprocessed Shipments</label>
+                                    <p>{{model.unprocessed.length}}</p>
+                                </div>
+                                <div class="record-item">
+                                    <label class=" ">Processed Shipments</label>
+                                    <p>{{model.processed.length}}</p>
+                                </div>
+                                <div class="record-item">
+                                    <label class=" ">Total Shipments</label>
+                                    <p>{{model.orders.length}}</p>
+                                </div>
+                                <div class="record-item">
+                                    <label class=" "> Address Line #1</label>
+                                    <p>{{model.addressLine1}}</p>
+                                </div>
+                                <div class="record-item">
+                                    <label class=" "> Address Line #2</label>
+                                    <p>{{model.addressLine2}}</p>
+                                </div>
+                                <div class="record-item">
+                                    <label class=" "> Zip Code </label>
+                                    <p>{{model.zipCode}}</p>
+                                </div>
+                                <div class="record-item">
+                                    <label class=" "> City</label>
+                                    <p>{{model.city}}</p>
+                                </div>
+                                <div class="record-item">
+                                    <label class=" "> State</label>
+                                    <p>{{model.state}}</p>
+                                </div>
+                                <div class="record-item">
+                                    <label class=" "> Country </label>
+                                    <p>{{model.country}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

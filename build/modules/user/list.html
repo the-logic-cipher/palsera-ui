@@ -1,0 +1,60 @@
+<div class="hbox hbox-auto-xs hbox-auto-sm" ng-controller="userCtrl">
+    <!-- main -->
+    <div class="col">
+        <!-- main header -->
+        <div class="bg-light lter b-b wrapper-md">
+            <div class="row">
+                <div class="col-sm-6 col-xs-12">
+                    <h1 class="m-n font-thin h3 text-black"> Users List </h1>
+                </div>
+            </div>
+        </div>
+        <!-- / main header -->
+        <div class="wrapper-md">
+            <div class="panel panel-default">
+        <table class="table table-striped">
+
+          <thead>
+              <tr>
+                <th>
+                  <input ng-model="search" placeholder="search for users" class="input-sm form-control ng-isolate-scope" type="search">
+              </th>
+              <th colspan="2">
+                  <a ui-sref="user.create" class="btn btn-sm btn-info pull-right"> Create User </a>
+              </th>
+              </tr>
+            <tr>
+              <th>
+                  <a ng-click="sortType = 'firstName'; sortReverse = !sortReverse;">
+                      Full Name
+                      <span ng-show="sortType == 'firstName' && !sortReverse" class="fa fa-caret-down"></span>
+                      <span ng-show="sortType == 'firstName' && sortReverse" class="fa fa-caret-up"></span>
+                   </a>
+              </th>
+              <th>
+                      Phone Number
+              </th>
+              <th >
+                  <a ng-click="sortType = 'email'; sortReverse = !sortReverse;">
+                      Email
+                      <span ng-show="sortType == 'email' && !sortReverse" class="fa fa-caret-down"></span>
+                      <span ng-show="sortType == 'email' && sortReverse" class="fa fa-caret-up"></span>
+                   </a>
+              </th>
+            </tr>
+
+          </thead>
+          <tbody>
+              <tr ng-repeat="user in users | filter:search | orderBy:sortType:sortReverse">
+                  <td> {{user.firstName}} {{user.lastName}} </td>
+                  <td> {{user.phone}} </td>
+                  <td> {{user.email}} </td>
+              </tr>
+          </tbody>
+        </table>
+      </div>
+         </div>
+
+    </div>
+    <!-- / main -->
+</div>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="app">
+    <head>
+        <meta charset="utf-8" />
+        <title>Pulsera Admin</title>
+        <meta name="description" content="AngularJs, Html5" />
+        <meta name="keywords" content="AngularJS, angular, bootstrap, admin, dashboard, panel, app, charts, components,flat, responsive, layout, kit, ui, route, web, app, widgets" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+        <!--CSS_VENDORS-->
+        <link rel="stylesheet" href="assets/vendor/angular/angular-toaster/toaster.css" type="text/css" />
+        <link rel="stylesheet" href="assets/vendor/animate/animate.css" type="text/css" />
+        <link rel="stylesheet" href="assets/vendor/bootstrap/bootstrap.css" type="text/css" />
+        <link rel="stylesheet" href="assets/vendor/common/simple-line-icons.css" type="text/css" />
+        <link rel="stylesheet" href="assets/vendor/font-awesome/font-awesome.css" type="text/css" />
+        <!--CSS_VENDORS END-->
+
+        <!--CSS_STYLES-->
+        <link rel="stylesheet" href="assets/css/fonts.css" type="text/css" />
+        <link rel="stylesheet" href="assets/css/app.css" type="text/css" />
+        <!--CSS_STYLES END-->
+
+        <!--JS_VENDORS-->
+        <script src="assets/vendor/jquery/jquery.min.js"></script>
+        <script src="assets/vendor/angular/angular.js"></script>
+        <script src="assets/vendor/angular/angular-animate/angular-animate.min.js"></script>
+        <script src="assets/vendor/angular/angular-bootstrap/ui-bootstrap-tpls-0.12.0.min.js"></script>
+        <script src="assets/vendor/angular/angular-gravatar/angular-gravatar.md5.min.js"></script>
+        <script src="assets/vendor/angular/angular-gravatar/angular-gravatar.min.js"></script>
+        <script src="assets/vendor/angular/angular-toaster/toaster.min.js"></script>
+        <script src="assets/vendor/angular/angular-ui-router/angular-ui-router.min.js"></script>
+        <script src="assets/vendor/angular/angular-ui-utils/ui-utils.min.js"></script>
+        <script src="assets/vendor/angular/ngstorage/ngStorage.min.js"></script>
+        <script src="assets/vendor/angular/oclazyload/ocLazyLoad.min.js"></script>
+        <script src="assets/vendor/angular/restangular/restangular.min.js"></script>
+        <script src="assets/vendor/angular/underscore/underscore-min.js"></script>
+        <script src="assets/vendor/checklistModel/checklist-model.js"></script>
+        <script src="assets/vendor/sugar/sugar.min.js"></script>
+        <!--JS_VENDORS END-->
+
+        <!--JS_MODULES-->
+        <script src="modules/access/access.js"></script>
+        <script src="modules/dashboard/dashboard.js"></script>
+        <script src="modules/school/school.js"></script>
+        <script src="modules/shipment/shipment.js"></script>
+        <script src="modules/user/user.js"></script>
+        <!--JS_MODULES END-->
+
+        <!--JS_SCRIPTS-->
+        <script src="assets/js/local.js"></script>
+        <script src="assets/js/app.js"></script>
+        <script src="assets/js/directives/setnganimate.js"></script>
+        <script src="assets/js/directives/ui-butterbar.js"></script>
+        <script src="assets/js/directives/ui-focus.js"></script>
+        <script src="assets/js/directives/ui-fullscreen.js"></script>
+        <script src="assets/js/directives/ui-jq.js"></script>
+        <script src="assets/js/directives/ui-map.js"></script>
+        <script src="assets/js/directives/ui-module.js"></script>
+        <script src="assets/js/directives/ui-nav.js"></script>
+        <script src="assets/js/directives/ui-scroll.js"></script>
+        <script src="assets/js/directives/ui-shift.js"></script>
+        <script src="assets/js/directives/ui-toggleclass.js"></script>
+        <script src="assets/js/index.js"></script>
+        <script src="assets/js/services/access-service.js"></script>
+        <script src="assets/js/services/auth-service.js"></script>
+        <script src="assets/js/services/local-service.js"></script>
+        <script src="assets/js/services/ui-load.js"></script>
+        <script src="assets/js/services/util-service.js"></script>
+        <!--JS_SCRIPTS END-->
+    </head>
+    <body ng-controller="AppCtrl">
+        <toaster-container></toaster-container>
+<div class="app" id="app" ng-class="{'app-header-fixed':app.settings.headerFixed, 'app-aside-fixed':app.settings.asideFixed, 'app-aside-folded':app.settings.asideFolded, 'app-aside-dock':app.settings.asideDock, 'container':app.settings.container}" ui-view></div>
+    </body>
+</html>

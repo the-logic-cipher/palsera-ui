@@ -1,0 +1,36 @@
+{
+  "name": "PulseraUI",
+  "version": "1.0.0",
+  "description": "Pulseras, Pulseras",
+  "engines": {
+    "node": "18.x"
+  },
+  "scripts": {
+    "start": "grunt app.js"
+  },
+  "repository": "",
+  "author": "Gigster engineer",
+  "license": "None",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "grunt-purifycss": "^0.1.2",
+    "gzippo": "^0.2.0",
+    "include-all": "^0.1.6",
+    "morgan": "^1.7.0"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-concurrent": "^1.0.0",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-concat": "^0.5.0",
+    "grunt-contrib-copy": "^0.5.0",
+    "grunt-contrib-cssmin": "^0.12.1",
+    "grunt-contrib-htmlmin": "^0.3.0",
+    "grunt-contrib-less": "^1.0.0",
+    "grunt-contrib-uglify": "^0.5.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-json-server": "^0.1.1",
+    "grunt-sails-linker": "^0.10.1"
+  }
+}

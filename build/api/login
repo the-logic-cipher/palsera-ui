@@ -1,0 +1,23 @@
+{
+    "response": {
+        "message": "Logged successfully",
+        "data": {
+            "user": {
+                "firstname": "Chuka",
+                "lastname": "Ofili",
+                "email": "ofili@microsmart.tk",
+                "password": "password",
+                "exp": "2238879600000",
+                "organisation": {
+                    "name": "Delivery Science"
+                },
+                "role": {
+                    "name": "Enterprise Architect"
+                }
+            },
+            "token": "JHGJHGJHGJHGHUYIUY87686hvnchgfHGFFHFHGJHGJH",
+            "exp": "2238879600000",
+            "iat": "1423772516947"
+        }
+    }
+}
